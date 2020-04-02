@@ -41,7 +41,7 @@ export class RestrictionInformation extends LitElement {
 
   render() {
     const restrictionInfo = getRestrictionInfo(this.plateNumber);
-    return this.plateNumber ? html`
+    return this.plateNumber !== null ? html`
     <div class="restriction-information">
       <h3>Resumen sobre la restricción de tu placa</h3>
       <div class="restriction-schedule green">

@@ -70,7 +70,7 @@ export class QuedateEnCasaCr extends LitElement {
         cursor:pointer;
         color:#777777;
         font-family:Arial;
-        font-size:27px;
+        font-size:23px;
         font-weight:bold;
         padding:6px 24px;
         text-decoration:none;

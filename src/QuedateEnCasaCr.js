@@ -1,5 +1,6 @@
 import { LitElement, html, css } from 'lit-element';
-import { calculateRestriction } from './helpers/calculateRestriction.js'
+import { calculateRestriction } from './helpers/calculateRestriction.js';
+import { RestrictionInformation } from './RestrictionInformation';
 
 export class QuedateEnCasaCr extends LitElement {
   static get properties() {
@@ -10,7 +11,8 @@ export class QuedateEnCasaCr extends LitElement {
       isRestricted: {type: Boolean},
       isEmergency: {type: Boolean},
       maxCirculationHour: {type: Number},
-      minCirculationHour: {type: Number}
+      minCirculationHour: {type: Number},
+      plateNumber: {type: Number}
     };
   }
 
@@ -120,6 +122,7 @@ export class QuedateEnCasaCr extends LitElement {
                            date.getDate() <= 12 ? 5 : 10;
 
     this.minCirculationHour = 5
+    this.plateNumber = plateNumber
   }
 
   _isEmergencyDate(date) {
@@ -163,6 +166,8 @@ export class QuedateEnCasaCr extends LitElement {
                   </div>` :
               ''
           }
+
+          <restriction-information .plateNumber=${this.plateNumber}></restriction-information>
         </div>    
       </main>
 

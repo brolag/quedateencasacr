@@ -42,7 +42,5 @@ export const calculateRestriction = (date, plateNumber) => {
     if (date.getMonth() === 3 && date.getDate() >= 4) {
         return calculateCovidRestriction(date.getDate(), plateNumber)
     }
-    else {
-        return calculateOrdinaryRestriction(date.getDay(), plateNumber)
-    }
+    return false
 }

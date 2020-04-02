@@ -136,7 +136,7 @@ export class QuedateEnCasaCr extends LitElement {
       <main>
         <div class="container">
           <h3>#QuedateEnCasaCR 🇨🇷🦠</h3>
-          <p>📅${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()} -  ⌚️${date.getHours()}:${date.getMinutes()}</p>
+          <p>📅${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()} -  ⌚️${date.getHours()}:${(date.getMinutes() < 10? '0' :'') + date.getMinutes()}</p>
           <h1>¿Tengo restricción?</h1>
 
           <div class="button-box">

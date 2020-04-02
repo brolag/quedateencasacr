@@ -167,8 +167,8 @@ export class QuedateEnCasaCr extends LitElement {
         ❤️ 🇨🇷 Hecho con amor por
         <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/brolag">@brolag</a>.
         <br />
-        Compartir es vivir
-        <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/brolag">@brolag</a>.
+        Código fuente en
+        <a target="_blank" rel="noopener noreferrer" href="https://github.com/brolag/quedateencasacr">GitHub</a>.
       </p>
     `;
   }

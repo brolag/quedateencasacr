@@ -172,6 +172,7 @@ export class QuedateEnCasaCr extends LitElement {
         <br />
         Código fuente en
         <a target="_blank" rel="noopener noreferrer" href="https://github.com/brolag/quedateencasacr">GitHub</a>.
+        Comunicado oficial <a target="_blank" rel="noopener noreferrer" href="https://covid19.presidencia.go.cr/restriccion-vehicular/">aquí</a>.
       </p>
     `;
   }

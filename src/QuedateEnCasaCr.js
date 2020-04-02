@@ -133,10 +133,11 @@ export class QuedateEnCasaCr extends LitElement {
     return html`
       <main>
         <div class="container">
-          <h2>¿Tengo restricción?</h2>
+          <h3>#QuedateEnCasaCR 🇨🇷🦠</h3>
+          <h1>¿Tengo restricción?</h1>
 
           <div class="button-box">
-            <h3>Mi placa termina en:</h3>
+            <h3>🚙 Mi placa termina en:</h3>
             ${plates.map(plateNumber => html`
               <button class="myButton" 
                       @click=${() => this._calculateRestriction(date, plateNumber)}>
@@ -147,15 +148,15 @@ export class QuedateEnCasaCr extends LitElement {
             this.showRestriction ?
             this.isRestricted ? 
             html`<div class="restriction-box red">
-                  SI, QUEDATE EN CASA.
+                 🔴 TENÉS RESTRICCIÓN, QUEDATE EN CASA 👮🏽‍♀️
                 </div>` :
             this.isEmergency ? 
               html`<div class="restriction-box orange">
-                    PODES SALIR SOLO A COMPRAR COMIDA O MEDICINAS ANTES DE LAS 5PM.
+                    🟡 PODES SALIR SOLO A COMPRAR COMIDA O MEDICINAS ANTES DE LAS 5PM 🍗🥦💊
                   </div>` : 
               html`<div class="restriction-box green">
-                    PODES USAR TU VEHÍCULO ANTES DE LAS ${this.circulationHour}PM SI ES NECESARIO PERO <br/> <strong>TRATÁ
-                    DE QUEDARTE EN CASA</strong>.
+                    🟢PODES USAR TU VEHÍCULO ANTES DE LAS ${this.circulationHour}PM SI ES NECESARIO PERO <br/> <strong>TRATÁ
+                    DE QUEDARTE EN CASA 🙏🏽</strong>
                   </div>` :
               ''
           }
@@ -164,6 +165,9 @@ export class QuedateEnCasaCr extends LitElement {
 
       <p class="app-footer">
         ❤️ 🇨🇷 Hecho con amor por
+        <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/brolag">@brolag</a>.
+        <br />
+        Compartir es vivir
         <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/brolag">@brolag</a>.
       </p>
     `;

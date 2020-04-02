@@ -151,14 +151,14 @@ export class QuedateEnCasaCr extends LitElement {
             this.showRestriction ?
             this.isRestricted ? 
             html`<div class="restriction-box red">
-                 🔴 TENÉS RESTRICCIÓN, QUEDATE EN CASA 👮🏽‍♀️
+                  TENÉS RESTRICCIÓN, QUEDATE EN CASA 👮🏽‍♀️
                 </div>` :
             this.isEmergency ? 
               html`<div class="restriction-box orange">
-                    🟡 PODES SALIR SOLO A COMPRAR COMIDA O MEDICINAS ANTES DE LAS 5PM 🍗🥦💊
+                    PODES SALIR SOLO A COMPRAR COMIDA O MEDICINAS ANTES DE LAS 5PM 🍗🥦💊
                   </div>` : 
               html`<div class="restriction-box green">
-                    🟢PODES USAR TU VEHÍCULO DESPUÉS DE LAS ${this.minCirculationHour}AM Y ANTES DE LAS ${this.maxCirculationHour}PM SI ES NECESARIO PERO <br/> <strong>TRATÁ
+                    PODES USAR TU VEHÍCULO DESPUÉS DE LAS ${this.minCirculationHour}AM Y ANTES DE LAS ${this.maxCirculationHour}PM SI ES NECESARIO PERO <br/> <strong>TRATÁ
                     DE QUEDARTE EN CASA 🙏🏽</strong>
                   </div>` :
               ''

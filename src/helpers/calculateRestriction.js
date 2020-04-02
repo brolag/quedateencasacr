@@ -15,21 +15,27 @@ const covidRestriction = [
 ]
 
 const calculateOrdinaryRestriction = (day, plateNumber) => {
-    return !!restriction.filter(restriction => restriction)
+    const result = restriction.filter(restriction => 
+        restriction.day === day &&
+        restriction.plates.includes(plateNumber))
+        
+    return result.length > 0
 }
 
 const calculateCovidRestriction = (day, plateNumber) => {
-    return ((day >= 4 && day <= 7 ) &&
-           (plateNumber % 2 === 0 && day % 2 > 0)) ||
-           calculateCovidFullRestrition(day, plateNumber)
+    if (day >= 4 && day <= 7 ) {
+        return (plateNumber % 2 === 0 && day % 2 === 1) ||
+               (plateNumber % 2 === 1 && day % 2 === 0)
+    }
+    return calculateCovidFullRestrition(day, plateNumber);
 
 }
 
 const calculateCovidFullRestrition = (day, plateNumber) => {
-    return !!covidRestriction.filter(restriction => 
+    return covidRestriction.filter(restriction => 
         restriction.day === day &&
         restriction.plates.includes(plateNumber)
-    )
+    ).length > 0;
 }
 
 export const calculateRestriction = (date, plateNumber) => {

@@ -1,5 +1,4 @@
 import { LitElement, html, css } from 'lit-element';
-import { openWcLogo } from './open-wc-logo.js';
 import { calculateRestriction } from './helpers/calculateRestriction.js'
 
 export class QuedateEnCasaCr extends LitElement {
@@ -7,7 +6,10 @@ export class QuedateEnCasaCr extends LitElement {
     return {
       title: { type: String },
       page: { type: String },
-      showRestriction: {type: Boolean}
+      showRestriction: {type: Boolean},
+      isRestricted: {type: Boolean},
+      isEmergency: {type: Boolean},
+      circulationHour: {type: Number}
     };
   }
 
@@ -113,10 +115,13 @@ export class QuedateEnCasaCr extends LitElement {
   _calculateRestriction(date, plateNumber) {
     this.showRestriction = true
     this.isRestricted = calculateRestriction(date, plateNumber);
+    this.isEmergency = this._isEmergencyDate(date)
+    this.circulationHour = date.getDate() >= 4 &&
+                           date.getDate() >= 12 ? 5 : 8;
   }
 
   _isEmergencyDate(date) {
-    return date.getMonth() === 4 &&
+    return date.getMonth() === 3 &&
            date.getDate() >= 8 &&
            date.getDate() <= 12;
   }
@@ -128,27 +133,28 @@ export class QuedateEnCasaCr extends LitElement {
     return html`
       <main>
         <div class="container">
-          <div class="logo">${openWcLogo}</div>
           <h2>¿Tengo restricción?</h2>
 
           <div class="button-box">
             <h3>Mi placa termina en:</h3>
             ${plates.map(plateNumber => html`
-              <button class="myButton" @click=${() => this._calculateRestriction(date, plateNumber)}>${plateNumber}</button>
-            `)}
+              <button class="myButton" 
+                      @click=${() => this._calculateRestriction(date, plateNumber)}>
+                      ${plateNumber}
+              </button>`)}
           </div>
           ${
-            (this.showRestriction) ?
-            (this._isEmergencyDate(date)) ? (
+            this.showRestriction ?
             this.isRestricted ? 
-              html`<div class="restriction-box red">
-                    SI, QUEDATE EN CASA.
-                  </div>` :
+            html`<div class="restriction-box red">
+                  SI, QUEDATE EN CASA.
+                </div>` :
+            this.isEmergency ? 
               html`<div class="restriction-box orange">
-                    PODES SALIR SOLO A COMPRAR COMIDA O MEDICINAS.
-                  </div>`) : 
+                    PODES SALIR SOLO A COMPRAR COMIDA O MEDICINAS ANTES DE LAS 5PM.
+                  </div>` : 
               html`<div class="restriction-box green">
-                    PODES USAR TU VEHÍCULO SI ES NECESARIO PERO <br/> <strong>TRATÁ
+                    PODES USAR TU VEHÍCULO ANTES DE LAS ${this.circulationHour}PM SI ES NECESARIO PERO <br/> <strong>TRATÁ
                     DE QUEDARTE EN CASA</strong>.
                   </div>` :
               ''

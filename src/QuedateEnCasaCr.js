@@ -89,7 +89,6 @@ export class QuedateEnCasaCr extends LitElement {
       .button-box {
         margin-bottom: 25px;
       }
-
       .restriction-box {
         border: 5px dashed;
         padding: 15px;
@@ -137,6 +136,7 @@ export class QuedateEnCasaCr extends LitElement {
       <main>
         <div class="container">
           <h3>#QuedateEnCasaCR 🇨🇷🦠</h3>
+          <p>📅${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()} -  ⌚️${date.getHours()}:${date.getMinutes()}</p>
           <h1>¿Tengo restricción?</h1>
 
           <div class="button-box">

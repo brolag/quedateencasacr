@@ -9,7 +9,8 @@ export class QuedateEnCasaCr extends LitElement {
       showRestriction: {type: Boolean},
       isRestricted: {type: Boolean},
       isEmergency: {type: Boolean},
-      circulationHour: {type: Number}
+      maxCirculationHour: {type: Number},
+      minCirculationHour: {type: Number}
     };
   }
 
@@ -116,8 +117,10 @@ export class QuedateEnCasaCr extends LitElement {
     this.showRestriction = true
     this.isRestricted = calculateRestriction(date, plateNumber);
     this.isEmergency = this._isEmergencyDate(date)
-    this.circulationHour = date.getDate() >= 4 &&
-                           date.getDate() >= 12 ? 5 : 8;
+    this.maxCirculationHour = date.getDate() >= 4 &&
+                           date.getDate() >= 12 ? 5 : 10;
+
+    this.minCirculationHour = 5
   }
 
   _isEmergencyDate(date) {
@@ -155,7 +158,7 @@ export class QuedateEnCasaCr extends LitElement {
                     🟡 PODES SALIR SOLO A COMPRAR COMIDA O MEDICINAS ANTES DE LAS 5PM 🍗🥦💊
                   </div>` : 
               html`<div class="restriction-box green">
-                    🟢PODES USAR TU VEHÍCULO ANTES DE LAS ${this.circulationHour}PM SI ES NECESARIO PERO <br/> <strong>TRATÁ
+                    🟢PODES USAR TU VEHÍCULO DESPUÉS DE LAS ${this.minCirculationHour}AM Y ANTES DE LAS ${this.maxCirculationHour}PM SI ES NECESARIO PERO <br/> <strong>TRATÁ
                     DE QUEDARTE EN CASA 🙏🏽</strong>
                   </div>` :
               ''

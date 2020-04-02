@@ -117,7 +117,7 @@ export class QuedateEnCasaCr extends LitElement {
     this.isRestricted = calculateRestriction(date, plateNumber);
     this.isEmergency = this._isEmergencyDate(date)
     this.maxCirculationHour = date.getDate() >= 3 &&
-                           date.getDate() >= 12 ? 5 : 8;
+                           date.getDate() <= 12 ? 5 : 10;
 
     this.minCirculationHour = 5
   }

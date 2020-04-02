@@ -167,7 +167,7 @@ export class QuedateEnCasaCr extends LitElement {
               ''
           }
 
-          <restriction-information .plateNumber=${this.plateNumber}></restriction-information>
+         
         </div>    
       </main>
 

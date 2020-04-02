@@ -41,8 +41,7 @@ export class RestrictionInformation extends LitElement {
 
   render() {
     const restrictionInfo = getRestrictionInfo(this.plateNumber);
-    console.log(restrictionInfo)
-    return html`
+    return this.plateNumber ? html`
     <div class="restriction-information">
       <h3>Resumen sobre la restricción de tu placa</h3>
       <div class="restriction-schedule green">
@@ -62,9 +61,9 @@ export class RestrictionInformation extends LitElement {
       <div class="restriction-schedule red">
         <h5>🚫Restricción total</h5>
         <ul>
-          ${restrictionInfo.regular.map(day => html`<li>${day} de Abril</li>`)}
+          ${restrictionInfo.full.map(day => html`<li>${day} de Abril</li>`)}
         </ul>
       </div>
-    </div>`
+    </div>` : ''
   }
 }

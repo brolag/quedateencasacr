@@ -45,7 +45,7 @@ export class RestrictionInformation extends LitElement {
     <div class="restriction-information">
       <h3>Resumen sobre la restricción de tu placa</h3>
       <div class="restriction-schedule green">
-        <h5>✅Restricción de 5:00 am a 5:00 pm</h5>
+        <h5>✅Podes circular de 5:00 am a 5:00 pm</h5>
         <ul>
           ${restrictionInfo.noRestriction.map(day => html`<li>${day} de Abril</li>`)}
         </ul>

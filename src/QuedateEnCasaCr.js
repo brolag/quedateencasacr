@@ -1,6 +1,5 @@
 import { LitElement, html, css } from 'lit-element';
 import { calculateRestriction } from './helpers/calculateRestriction.js';
-import { RestrictionInformation } from './RestrictionInformation';
 
 export class QuedateEnCasaCr extends LitElement {
   static get properties() {
@@ -61,6 +60,31 @@ export class QuedateEnCasaCr extends LitElement {
       .app-footer a {
         margin-left: 5px;
       }
+
+      .install-button {
+        box-shadow:inset 0px 1px 0px 0px #a4e271;
+        background:linear-gradient(to bottom, #89c403 5%, #77a809 100%);
+        background-color:#89c403;
+        border-radius:6px;
+        border:1px solid #74b807;
+        display:inline-block;
+        cursor:pointer;
+        color:#ffffff;
+        font-family:Arial;
+        font-size:15px;
+        font-weight:bold;
+        padding:6px 24px;
+        text-decoration:none;
+        text-shadow:0px 1px 0px #528009;
+      }
+      .install-button:hover {
+        background:linear-gradient(to bottom, #77a809 5%, #89c403 100%);
+        background-color:#77a809;
+      }
+      .install-button:active {
+        position:relative;
+        top:1px;
+      }  
 
       .myButton {
         box-shadow:inset 0px 1px 0px 0px #ffffff;
@@ -139,6 +163,12 @@ export class QuedateEnCasaCr extends LitElement {
       <main>
         <div class="container">
           <h3>#QuedateEnCasaCR 🇨🇷🦠</h3>
+          <pwa-update-available>
+            <button class="install-button">
+              Actualización disponible <br />
+              Instalar ahora            
+            </button>
+          </pwa-update-available>
           <p>📅${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()} -  ⌚️${date.getHours()}:${(date.getMinutes() < 10? '0' :'') + date.getMinutes()}</p>
           <h1>¿Tengo restricción?</h1>
 

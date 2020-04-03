@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit-element';
-import { getRestrictionInfo } from './helpers/getRestrictionInformation';
+import { getRestrictionInfo } from './helpers/getRestrictionInformation.js';
 
 export class RestrictionInformation extends LitElement {
   static get properties() {
@@ -37,33 +37,52 @@ export class RestrictionInformation extends LitElement {
       .red {
         color: red;
       }
-    `;}
+    `;
+  }
 
   render() {
     const restrictionInfo = getRestrictionInfo(this.plateNumber);
-    return this.plateNumber !== null ? html`
-    <div class="restriction-information">
-      <h3>Resumen sobre la restricción de tu placa</h3>
-      <div class="restriction-schedule green">
-        <h5>✅Podes circular de 5:00 am a 5:00 pm</h5>
-        <ul>
-          ${restrictionInfo.noRestriction.map(day => html`<li>${day} de Abril</li>`)}
-        </ul>
-      </div>
+    return this.plateNumber !== null
+      ? html`
+          <div class="restriction-information">
+            <h3>Resumen sobre la restricción de tu placa</h3>
+            <div class="restriction-schedule green">
+              <h5>✅Podes circular de 5:00 am a 5:00 pm</h5>
+              <ul>
+                ${restrictionInfo.noRestriction.map(
+                  day =>
+                    html`
+                      <li>${day} de Abril</li>
+                    `,
+                )}
+              </ul>
+            </div>
 
-      <div class="restriction-schedule orange">
-        <h5>⚠️ Solamente alimentos y medicinas</h5>
-        <ul>
-          ${restrictionInfo.regular.map(day => html`<li>${day} de Abril</li>`)}
-        </ul>
-      </div>
+            <div class="restriction-schedule orange">
+              <h5>⚠️ Solamente alimentos y medicinas</h5>
+              <ul>
+                ${restrictionInfo.regular.map(
+                  day =>
+                    html`
+                      <li>${day} de Abril</li>
+                    `,
+                )}
+              </ul>
+            </div>
 
-      <div class="restriction-schedule red">
-        <h5>🚫Restricción total</h5>
-        <ul>
-          ${restrictionInfo.full.map(day => html`<li>${day} de Abril</li>`)}
-        </ul>
-      </div>
-    </div>` : ''
+            <div class="restriction-schedule red">
+              <h5>🚫Restricción total</h5>
+              <ul>
+                ${restrictionInfo.full.map(
+                  day =>
+                    html`
+                      <li>${day} de Abril</li>
+                    `,
+                )}
+              </ul>
+            </div>
+          </div>
+        `
+      : '';
   }
 }

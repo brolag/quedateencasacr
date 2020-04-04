@@ -31,12 +31,10 @@ const calculateCovidRestriction = (day, plateNumber) => {
 
 }
 
-const calculateCovidFullRestrition = (day, plateNumber) => {
-    return covidRestriction.filter(restriction => 
+const calculateCovidFullRestrition = (day, plateNumber) => covidRestriction.filter(restriction => 
         restriction.day === day &&
         restriction.plates.includes(plateNumber)
-    ).length > 0;
-}
+    ).length > 0
 
 export const calculateRestriction = (date, plateNumber) => {
     if (date.getMonth() === 3 && date.getDate() >= 4) {

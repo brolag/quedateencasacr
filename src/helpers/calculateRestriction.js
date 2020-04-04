@@ -24,8 +24,8 @@ const calculateOrdinaryRestriction = (day, plateNumber) => {
 
 const calculateCovidRestriction = (day, plateNumber) => {
     if (day >= 4 && day <= 7 ) {
-        return (plateNumber % 2 === 0 && day % 2 === 1) ||
-               (plateNumber % 2 === 1 && day % 2 === 0)
+        return (plateNumber % 2 === 0 && day % 2 === 1) ||  
+               (plateNumber % 2 === 0 && day % 2 === 0)
     }
     return calculateCovidFullRestrition(day, plateNumber);
 

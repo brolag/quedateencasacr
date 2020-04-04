@@ -63,4 +63,4 @@ const restrictionsPerPlate = [
 
 export const getRestrictionInfo = plateNumber =>  
   restrictionsPerPlate.find(restrictionDataSet => 
-    restrictionDataSet.plateNumber == plateNumber);
+    restrictionDataSet.plateNumber === plateNumber);

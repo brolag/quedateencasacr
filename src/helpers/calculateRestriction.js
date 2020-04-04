@@ -7,9 +7,8 @@ const covidRestriction = [
 ];
 
 const calculateCovidFullRestrition = (day, plateNumber) =>
-  covidRestriction.find(
-    restrictionDay => restrictionDay.day === day && restrictionDay.plates.includes(plateNumber),
-  );
+  covidRestriction.find(restrictionDay => 
+    restrictionDay.day === day && restrictionDay.plates.includes(plateNumber));
 
 const calculateCovidRestriction = (day, plateNumber) => {
   if (day >= 4 && day <= 7) {
@@ -18,9 +17,6 @@ const calculateCovidRestriction = (day, plateNumber) => {
   return calculateCovidFullRestrition(day, plateNumber);
 };
 
-export const calculateRestriction = (date, plateNumber) => {
-  if (date.getMonth() === 3 && date.getDate() >= 4) {
-    return calculateCovidRestriction(date.getDate(), plateNumber);
-  }
-  return false;
-};
+export const calculateRestriction = (date, plateNumber) => 
+  (date.getMonth() === 3 && date.getDate() >= 4) ?
+    calculateCovidRestriction(date.getDate(), plateNumber) : false

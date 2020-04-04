@@ -139,14 +139,12 @@ export class QuedateEnCasaCr extends LitElement {
   }
 
   _calculateRestriction(date, plateNumber) {
-    this.showRestriction = true
+    this.showRestriction = true;
     this.isRestricted = calculateRestriction(date, plateNumber);
-    this.isEmergency = this._isEmergencyDate(date)
-    this.maxCirculationHour = date.getDate() >= 3 &&
-                           date.getDate() <= 12 ? 5 : 10;
-
-    this.minCirculationHour = 5
-    this.plateNumber = plateNumber
+    this.isEmergency = this._isEmergencyDate(date);
+    this.maxCirculationHour = date.getDate() >= 3 && date.getDate() <= 12 ? 5 : 10;
+    this.minCirculationHour = 5;
+    this.plateNumber = plateNumber;
   }
 
   _isEmergencyDate(date) {
@@ -169,7 +167,10 @@ export class QuedateEnCasaCr extends LitElement {
               Instalar ahora            
             </button>
           </pwa-update-available>
-          <p>📅${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()} -  ⌚️${date.getHours()}:${(date.getMinutes() < 10? '0' :'') + date.getMinutes()}</p>
+          <p>
+            📅${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()} -  
+            ⌚️${date.getHours()}:${(date.getMinutes() < 10? '0' :'') + date.getMinutes()}
+          </p>
           <h1>¿Tengo restricción?</h1>
 
           <div class="button-box">
@@ -191,11 +192,10 @@ export class QuedateEnCasaCr extends LitElement {
                     PODES SALIR SOLO A COMPRAR COMIDA O MEDICINAS ANTES DE LAS 5PM 🍗🥦💊
                   </div>` : 
               html`<div class="restriction-box green">
-                    PODES USAR TU VEHÍCULO DESPUÉS DE LAS ${this.minCirculationHour}AM Y ANTES DE LAS ${this.maxCirculationHour}PM SI ES NECESARIO PERO <br/> <strong>TRATÁ
-                    DE QUEDARTE EN CASA 🙏🏽</strong>
+                    PODES USAR TU VEHÍCULO DESPUÉS DE LAS ${this.minCirculationHour}AM Y ANTES DE LAS ${this.maxCirculationHour}PM SI ES NECESARIO PERO <br/> 
+                    <strong>TRATÁ DE QUEDARTE EN CASA 🙏🏽</strong>
                   </div>` :
-              ''
-          }
+              ''}
 
           <restriction-information .plateNumber=${this.plateNumber}></restriction-information>
         </div>    

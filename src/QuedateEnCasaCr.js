@@ -140,17 +140,15 @@ export class QuedateEnCasaCr extends LitElement {
 
   _calculateRestriction(date, plateNumber) {
     this.showRestriction = true;
-    this.isRestricted = calculateRestriction(date, plateNumber);
+    this.isRestricted = calculateRestriction(date.getDay(), plateNumber);
     this.isEmergency = this._isEmergencyDate(date);
-    this.maxCirculationHour = date.getDate() >= 3 && date.getDate() <= 12 ? 5 : 10;
+    this.maxCirculationHour = 7;
     this.minCirculationHour = 5;
     this.plateNumber = plateNumber;
   }
 
   _isEmergencyDate(date) {
-    return date.getMonth() === 3 &&
-           date.getDate() >= 8 &&
-           date.getDate() <= 12;
+    return date.getDay() === 6 || date.getDay() === 0;
   }
 
   render() {
@@ -160,7 +158,7 @@ export class QuedateEnCasaCr extends LitElement {
     return html`
       <main>
         <div class="container">
-          <h3>#QuedateEnCasaCR 🇨🇷🦠</h3>
+          <h3>#QuedateEnCasaCR 🇨🇷🦠 Restriccioncr.com</h3>
           <pwa-update-available>
             <button class="install-button">
               Actualización disponible <br />
@@ -207,7 +205,7 @@ export class QuedateEnCasaCr extends LitElement {
         <br />
         Código fuente en
         <a target="_blank" rel="noopener noreferrer" href="https://github.com/brolag/quedateencasacr">GitHub</a>.
-        Comunicado oficial <a target="_blank" rel="noopener noreferrer" href="https://covid19.presidencia.go.cr/restriccion-vehicular/">aquí</a>.
+        Comunicado oficial <a target="_blank" rel="noopener noreferrer" href="https://www.presidencia.go.cr/comunicados/2020/04/nuevas-medidas-de-restriccion-aplicaran-del-13-al-30-de-abril/">aquí</a>.
       </p>
     `;
   }

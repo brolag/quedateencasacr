@@ -16,6 +16,11 @@ export class RestrictionInformation extends LitElement {
       ul {
         margin: 15px;
       }
+      ul.day-list {
+        display: flex;
+        flex-flow: row;
+        justify-content: center;
+      }
       .restriction-information {
         display: flex;
         flex-flow: column;
@@ -37,6 +42,11 @@ export class RestrictionInformation extends LitElement {
       .red {
         color: red;
       }
+      .day-item {
+        padding: 15px;
+        margin: 15px
+        border: 1px solid;
+      }
     `;
   }
 
@@ -47,12 +57,12 @@ export class RestrictionInformation extends LitElement {
           <div class="restriction-information">
             <h3>Resumen sobre la restricción de tu placa</h3>
             <div class="restriction-schedule green">
-              <h5>✅Podes circular de 5:00 am a 5:00 pm</h5>
-              <ul>
+              <h5>✅Podes circular de 5:00 am a 7:00 pm</h5>
+              <ul class="day-list">
                 ${restrictionInfo ? restrictionInfo.noRestriction.map(
                   day =>
                     html`
-                      <li>${day} de Abril</li>
+                      <li class="day-item">${day}</li>
                     `,
                 ) : ''}
               </ul>
@@ -60,11 +70,11 @@ export class RestrictionInformation extends LitElement {
 
             <div class="restriction-schedule orange">
               <h5>⚠️ Solamente alimentos y medicinas</h5>
-              <ul>
+              <ul class="day-list">
                 ${restrictionInfo ? restrictionInfo.regular.map(
                   day =>
                     html`
-                      <li>${day} de Abril</li>
+                      <li class="day-item">${day}</li>
                     `,
                 ): ''}
               </ul>
@@ -72,11 +82,11 @@ export class RestrictionInformation extends LitElement {
 
             <div class="restriction-schedule red">
               <h5>🚫Restricción total</h5>
-              <ul>
+              <ul class="day-list">
                 ${restrictionInfo ? restrictionInfo.full.map(
                   day =>
                     html`
-                      <li>${day} de Abril</li>
+                      <li class="day-item">${day}</li>
                     `,
                 ): ''}
               </ul>

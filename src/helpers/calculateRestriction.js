@@ -1,9 +1,9 @@
 const restrictionDays = [
-  { day: 1, plates: [0, 1] },
-  { day: 2, plates: [2, 3] },
-  { day: 3, plates: [4, 5] },
-  { day: 4, plates: [6, 7] },
-  { day: 5, plates: [8, 9] },
+  { day: 1, plates: [1, 2] },
+  { day: 2, plates: [3, 4] },
+  { day: 3, plates: [5, 6] },
+  { day: 4, plates: [7, 8] },
+  { day: 5, plates: [9, 0] },
 ];
 
 export const calculateWeekendRestriction = (day, plateNumber) => {

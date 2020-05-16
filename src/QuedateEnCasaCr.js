@@ -142,7 +142,7 @@ export class QuedateEnCasaCr extends LitElement {
     this.showRestriction = true;
     this.isRestricted = calculateRestriction(date.getDay(), plateNumber);
     this.isEmergency = this._isEmergencyDate(date);
-    this.maxCirculationHour = 7;
+    this.maxCirculationHour = 10;
     this.minCirculationHour = 5;
     this.plateNumber = plateNumber;
   }
@@ -190,9 +190,8 @@ export class QuedateEnCasaCr extends LitElement {
                     PODES SALIR SOLO A COMPRAR COMIDA O MEDICINAS ANTES DE LAS 5PM 🍗🥦💊
                   </div>` : 
               html`<div class="restriction-box green">
-                    PODES USAR TU VEHÍCULO DESPUÉS DE LAS ${this.minCirculationHour}AM Y ANTES DE LAS ${this.maxCirculationHour}PM SI ES NECESARIO PERO <br/> 
-                    <strong>TRATÁ DE QUEDARTE EN CASA 🙏🏽</strong>
-                  </div>` :
+                    PODES USAR TU VEHÍCULO DESPUÉS DE LAS ${this.minCirculationHour}AM Y ANTES DE LAS ${this.maxCirculationHour}PM     
+                   </div>` :
               ''}
 
           <restriction-information .plateNumber=${this.plateNumber}></restriction-information>
